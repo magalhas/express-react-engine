@@ -24,7 +24,7 @@ module.exports = function engineFactory (engineOptions) {
 
       var Component = require(filename);
 
-      var instance = React.createElement(Component, options.props);
+      var instance = React.createElement(Component, options);
 
       if (engineOptions.staticMarkup) {
         markup += React.renderToStaticMarkup(instance);
