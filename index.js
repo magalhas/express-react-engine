@@ -32,6 +32,15 @@ module.exports = function engineFactory (engineOptions) {
         markup += React.renderToString(instance);
       }
 
+      if (options.settings.env === 'development') {
+        Object.keys(require.cache).forEach(function(module) {
+          if (new RegExp('\\' + engineOptions.jsx.extension + '$')
+              .test(require.cache[module].filename)) {
+            delete require.cache[module];
+          }
+        });
+      }
+
       callback(null, markup);
     } catch (error) {
       callback(error);
