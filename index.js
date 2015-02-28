@@ -3,6 +3,7 @@
 var React = require('react');
 var nodeJSX = require('node-jsx');
 var merge = require('lodash.merge');
+var path = require('path');
 
 module.exports = function engineFactory (engineOptions) {
   engineOptions = merge(engineOptions || {}, {
@@ -26,10 +27,27 @@ module.exports = function engineFactory (engineOptions) {
 
       var instance = React.createElement(Component, options);
 
+      var componentMarkup;
       if (engineOptions.staticMarkup) {
-        markup += React.renderToStaticMarkup(instance);
+        componentMarkup = React.renderToStaticMarkup(instance);
       } else {
-        markup += React.renderToString(instance);
+        componentMarkup = React.renderToString(instance);
+      }
+
+      if (engineOptions.wrapper) {
+        var Wrapper = require(path.join(process.cwd(), options.settings.views, engineOptions.wrapper));
+        var wrapperInstance = React.createElement(Wrapper, {
+          body: componentMarkup,
+          props: options
+        });
+
+        if (engineOptions.staticMarkup) {
+          markup += React.renderToStaticMarkup(wrapperInstance);
+        } else {
+          markup += React.renderToString(wrapperInstance);
+        }
+      } else {
+        markup += componentMarkup;
       }
 
       if (options.settings.env === 'development') {
