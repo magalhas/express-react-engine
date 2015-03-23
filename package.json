@@ -19,6 +19,6 @@
   "dependencies": {
     "lodash.merge": "^3.0.2",
     "node-jsx": "^0.12.4",
-    "react": "^0.13.0-rc1"
+    "react": "^0.13.1"
   }
 }

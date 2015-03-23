@@ -35,7 +35,7 @@ module.exports = function engineFactory (engineOptions) {
       }
 
       if (engineOptions.wrapper) {
-        var Wrapper = require(path.join(process.cwd(), options.settings.views, engineOptions.wrapper));
+        var Wrapper = require(path.join(options.settings.views, engineOptions.wrapper));
         var wrapperInstance = React.createElement(Wrapper, {
           body: componentMarkup,
           props: options
