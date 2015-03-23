@@ -1,6 +1,6 @@
 # express-react-engine
 
-This is an [Express](http://expressjs.com) view engine for [React](http://http://facebook.github.io/react/) that supports server side rendering and **it is not limited to static markdown**.
+This is an [Express](http://expressjs.com) view engine for [React's](http://http://facebook.github.io/react/) JSX that supports server side rendering and **it is not limited to static markdown**.
 
 ## Usage
 
