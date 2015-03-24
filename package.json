@@ -16,9 +16,14 @@
     "url": "https://github.com/magalhas/express-react-engine/issues"
   },
   "homepage": "https://github.com/magalhas/express-react-engine",
+  "peerDependencies": {
+    "react": "^0.13.1"
+  },
   "dependencies": {
     "lodash.merge": "^3.0.2",
-    "node-jsx": "^0.12.4",
+    "node-jsx": "^0.12.4"
+  },
+  "devDependencies": {
     "react": "^0.13.1"
   }
 }
