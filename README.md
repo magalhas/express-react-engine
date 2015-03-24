@@ -82,19 +82,20 @@ module.exports = Home;
 
 ## Routes
 
-You can use your `routes` the same way you always did in **Express**. Just render the React component instead of a jade/hjs/hbs template.
+You can use your `routes` the same way you always did in **Express**. Just render the React component instead of a jade/hjs/hbs template. Passing an object to the component as `props` is also straightforward, just add it as the second argument of `res.render()`.
 
 ```javascript
 var express = require('express');
 var router = express.Router();
 
 router.get('/', function (req, res, next) {
-  res.render('home/index.jsx');
+  res.render('home/index.jsx', { foo: 'bar' });
 });
 
 module.exports = router;
 
 ```
+Now `foo` will be available within the component as `this.props.foo`.
 
 ## Layouts
 
