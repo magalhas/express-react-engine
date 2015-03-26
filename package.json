@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "lodash.merge": "^3.0.2",
-    "node-jsx": "^0.12.4"
+    "babel": "^4.7.16"
   },
   "devDependencies": {
     "react": "^0.13.1"
