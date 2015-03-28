@@ -1,18 +1,20 @@
 'use strict';
 
 var React = require('react');
-var merge = require('lodash.merge');
+var defaults = require('lodash.defaults');
 var path = require('path');
 
 module.exports = function engineFactory (engineOptions) {
-   engineOptions = merge(engineOptions || {}, {
+   engineOptions = defaults(engineOptions || {}, {
       extension: '.jsx',
       babel: {},
       docType: '<!DOCTYPE html>',
       staticMarkup: false
    });
 
-   require('babel/register')(engineOptions.babel);
+   if (engineOptions.babel) {
+     require('babel/register')(engineOptions.babel);
+   }
 
    return function renderComponent (filename, options, callback) {
       options = options || {};

@@ -20,8 +20,8 @@
     "react": "^0.13.1"
   },
   "dependencies": {
-    "lodash.merge": "^3.0.2",
-    "babel": "^4.7.16"
+    "babel": "^4.7.16",
+    "lodash.defaults": "^3.1.0"
   },
   "devDependencies": {
     "react": "^0.13.1"
