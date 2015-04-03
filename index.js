@@ -37,12 +37,9 @@ module.exports = function engineFactory (engineOptions) {
                body: componentMarkup,
                props: options
             });
-
-            if (engineOptions.staticMarkup) {
-               markup += React.renderToStaticMarkup(wrapperInstance);
-            } else {
-               markup += React.renderToString(wrapperInstance);
-            }
+   
+            markup += React.renderToStaticMarkup(wrapperInstance);
+            
          } else {
             markup += componentMarkup;
          }
