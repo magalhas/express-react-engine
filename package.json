@@ -1,6 +1,6 @@
 {
   "name": "express-react-engine",
-  "version": "0.4.3",
+  "version": "0.4.4",
   "description": "A React's JSX rendering engine",
   "main": "index.js",
   "scripts": {
