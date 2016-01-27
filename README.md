@@ -5,10 +5,10 @@ This is an [Express](http://expressjs.com) view engine for [React's](http://http
 ## Usage
 
 ```
-npm install express-react-engine react
+npm install express-react-engine react react-dom
 ```
 
-Make sure you install **React** as a dependency.
+Make sure you install `react` and `react-dom` as dependencies.
 
 
 ### Add it to your Express App
