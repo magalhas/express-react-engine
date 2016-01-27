@@ -1,6 +1,7 @@
 'use strict';
 
 var React = require('react');
+var ReactDOMServer = require('react-dom/server');
 var defaults = require('lodash.defaults');
 var path = require('path');
 
@@ -26,9 +27,9 @@ module.exports = function engineFactory (engineOptions) {
 
          var componentMarkup;
          if (engineOptions.staticMarkup) {
-            componentMarkup = React.renderToStaticMarkup(instance);
+            componentMarkup = ReactDOMServer.renderToStaticMarkup(instance);
          } else {
-            componentMarkup = React.renderToString(instance);
+            componentMarkup = ReactDOMServer.renderToString(instance);
          }
 
          if (engineOptions.wrapper) {
@@ -37,9 +38,9 @@ module.exports = function engineFactory (engineOptions) {
                body: componentMarkup,
                props: options
             });
-   
-            markup += React.renderToStaticMarkup(wrapperInstance);
-            
+
+            markup += ReactDOMServer.renderToStaticMarkup(wrapperInstance);
+
          } else {
             markup += componentMarkup;
          }
