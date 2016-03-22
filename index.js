@@ -14,7 +14,7 @@ module.exports = function engineFactory (engineOptions) {
    });
 
    if (engineOptions.babel) {
-     require('babel/register')(engineOptions.babel);
+     require('babel-core/register')(engineOptions.babel);
    }
 
    return function renderComponent (filename, options, callback) {
