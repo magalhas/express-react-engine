@@ -22,7 +22,14 @@ module.exports = function engineFactory (engineOptions) {
 
       try {
          var markup = engineOptions.docType;
-         var Component = require(filename);
+         var Component;
+
+         if (require(filename).__esModule) {
+            Component = require(filename).default;
+         } else {
+            Component = require(filename);
+         }
+
          var instance = React.createElement(Component, options);
 
          var componentMarkup;
