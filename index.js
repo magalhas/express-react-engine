@@ -22,15 +22,13 @@ module.exports = function engineFactory (engineOptions) {
 
       try {
          var markup = engineOptions.docType;
-         var Component;
-
-         if (require(filename).__esModule) {
-            Component = require(filename).default;
-         } else {
-            Component = require(filename);
-         }
-
-         var instance = React.createElement(Component, options);
+         /** 
+            Depending on whether one is using ES6 import/export style modules, 
+            or Node's require/exports style Modules, we need to specify how
+            we should reference the component from the required file
+         */
+         var ReactComponent = require(filename) ? require(filename).default ? require(filename).default : require(filename) : require(filename);
+         var instance = React.createElement(ReactComponent, options);
 
          var componentMarkup;
          if (engineOptions.staticMarkup) {
